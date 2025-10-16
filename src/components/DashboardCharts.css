@@ -1,0 +1,277 @@
+.dashboard-charts {
+  margin-bottom: 30px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.chart-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.chart-card h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.1em;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.chart-wide {
+  grid-column: span 2;
+}
+
+/* Gráfico de Barras */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bar-label {
+  min-width: 120px;
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 500;
+}
+
+.bar-wrapper {
+  flex: 1;
+  height: 30px;
+  background: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  border-radius: 15px;
+  transition: width 0.5s ease;
+  min-width: 40px;
+}
+
+.vigilante-bar {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.cliente-bar {
+  background: linear-gradient(90deg, #17a2b8 0%, #138496 100%);
+}
+
+.bar-value {
+  color: white;
+  font-weight: bold;
+  font-size: 0.85em;
+}
+
+/* Gráfico de Linha (Atividade) */
+.line-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 200px;
+  gap: 10px;
+  padding: 20px 10px 0;
+}
+
+.line-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.line-bar {
+  width: 100%;
+  max-width: 50px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8px;
+  min-height: 40px;
+  transition: height 0.5s ease;
+  position: relative;
+}
+
+.line-value {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.line-label {
+  font-size: 0.85em;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Gráfico de Pizza */
+.pie-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.pie-chart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #28a745 0deg,
+    #28a745 calc(var(--percentage) * 360deg),
+    #dc3545 calc(var(--percentage) * 360deg),
+    #dc3545 360deg
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95em;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.foto-color {
+  background: #28a745;
+}
+
+.sem-foto-color {
+  background: #dc3545;
+}
+
+.legend-text {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-wide {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-charts {
+    margin-bottom: 20px;
+  }
+
+  .charts-grid {
+    gap: 15px;
+  }
+
+  .chart-card {
+    padding: 20px;
+  }
+
+  .chart-card h3 {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+
+  .bar-label {
+    min-width: 80px;
+    font-size: 0.85em;
+  }
+
+  .bar-wrapper {
+    height: 25px;
+  }
+
+  .line-chart {
+    height: 150px;
+    padding: 15px 5px 0;
+  }
+
+  .line-bar {
+    max-width: 40px;
+  }
+
+  .line-label {
+    font-size: 0.75em;
+  }
+
+  .pie-chart {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-card {
+    padding: 15px;
+  }
+
+  .bar-label {
+    min-width: 60px;
+    font-size: 0.8em;
+  }
+
+  .bar-wrapper {
+    height: 20px;
+  }
+
+  .bar-value {
+    font-size: 0.75em;
+  }
+
+  .line-chart {
+    height: 120px;
+    gap: 5px;
+  }
+
+  .line-value {
+    font-size: 0.8em;
+  }
+
+  .pie-chart {
+    width: 100px;
+    height: 100px;
+  }
+}
+
